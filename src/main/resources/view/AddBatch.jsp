@@ -27,26 +27,29 @@
         <f:view>
             <div class="col s12">
                 <div class="row">
-                    <center> <h4>Add Class</h4></center>
+                    <center> <h4>Add Batches</h4></center>
                     <div class="col s12 m4">
                     </div>
                     <div class="col s12 m4">
-                        <form action="/AddClass" > 
+                        <form action="/AddBatch" method="POSt" > 
                             <div class="card ">
                                 <div class="card-content">
                                     <div class="input-field">
-                                        <input type="text" name="firstName" class="validate">
-                                        <label for="Class Name">Class Name</label>
-                                    </div>
-
+                                        <input type="text" name="deptName" class="validate">
+                                        <label for="deptName">Department Name</label>
+                                    </div> 
                                     <div class="input-field "> 
-                                        <input type="text" name="lastName" class="validate">
-                                        <label for="Department">Department</label>
+                                        <input type="text" name="className" class="validate">
+                                        <label for="className">Class Name</label>
                                     </div> 
 
                                     <div class="input-field "> 
-                                        <input type="text" name="lastName" class="validate">
-                                        <label for="Class">Class</label>
+                                        <input type="text" name="divName" class="validate">
+                                        <label for="divName">Division Name</label>
+                                    </div>
+                                    <div class="input-field "> 
+                                        <input type="text" name="batchName" class="validate">
+                                        <label for="batchName">Bach</label>
                                     </div>
                                 </div>
                                 <div class="card-action">

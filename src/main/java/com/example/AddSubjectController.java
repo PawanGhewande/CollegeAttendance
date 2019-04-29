@@ -38,10 +38,8 @@ public class AddSubjectController {
             if (subject != null) {
                 SubjectModel sm = new SubjectModel();
                 Map<String, Object> data = new HashMap<>();
-                data.put("class", subject.getClassName());
-                data.put("department", subject.getDeptName());
                 data.put("added_by", "Admin");
-                sm.saveSubject("subjects", subject.getSubjectName(), data);
+                sm.saveSubject(subject.getDeptName(), subject.getClassName(),subject.getSubjectName(), data);
             }
             //model.addAttribute("user", user);
         } catch (Exception ex) {

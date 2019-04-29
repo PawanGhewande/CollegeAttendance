@@ -17,6 +17,7 @@
                         <li><a href="AddSubject">Add Subject</a></li>
                         <li><a href="AddTeacher">Add Teacher</a></li>
                         <li><a href="AddClass">Add Class</a></li>
+                                                <li><a href="AddBatch">Add Batches</a></li>
                         <li><a href="ImportStudents">Import Students</a></li>
                     </ul>
                 </div>

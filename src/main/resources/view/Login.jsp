@@ -28,7 +28,7 @@
                             </div>
                             <div class="card-action">
                                 <div class="center">
-                                    <button class="btn waves-effect waves-light" type="submit" name="action">Login
+                                    <button class="btn waves-effect waves-light" type="submit" name="action" style="border-radius: 15px; background-color: #3f51b5;">Login
                                         <i class="material-icons right">send</i>
                                     </button>
                                 </div>
