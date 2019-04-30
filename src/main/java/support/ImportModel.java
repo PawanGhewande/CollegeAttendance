@@ -9,7 +9,10 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.WriteResult;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.cloud.FirestoreClient;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import connections.FireStoreDB;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -35,16 +38,22 @@ public class ImportModel {
         FireStoreDB db = new FireStoreDB();
         try {
             db.init();
-            Firestore open = FirestoreClient.getFirestore();
-            DocumentReference docRef = open.collection("students").document(department).collection(className).document(divName);
-
-            ApiFuture<WriteResult> result = docRef.set(data);
-
-            result.get();
+//            Firestore open = FirestoreClient.getFirestore();
+//            DocumentReference docRef = open.collection("students").document(department).collection(className).document(divName);
+//            ApiFuture<WriteResult> result = docRef.set(data);
+//            result.get();
+//            if (result.isDone()) {
+//                status = true;
+//                FireStoreDB.initializeApp.delete();
+//            }//ABOVE CODE FOR THE FIRESTORE DATABASE
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference ref = database.getReference().child("students").child(department).child(className).child(divName);
+            ApiFuture<Void> result = ref.setValueAsync(data);
             if (result.isDone()) {
                 status = true;
-                FireStoreDB.initializeApp.delete();
-            }
+               //FirebaseApp.getInstance().delete();
+               // database.getApp().delete();
+            }//THIS IS CODE FOR FIREBASE REALTIME DATABASE
 
         } catch (InterruptedException ex) {
             ex.printStackTrace();
@@ -72,20 +81,20 @@ public class ImportModel {
                 while (cellIterator.hasNext()) {
                     Map<String, Object> student = new HashMap<>();
                     Cell currentCell = cellIterator.next();
-                    
+
                     student.put("roll_no", getCellValue(currentCell));
-                      currentCell = cellIterator.next();
-                    student.put("serial_no",getCellValue(currentCell));
-                      currentCell = cellIterator.next();
-                    String name=getCellValue(currentCell);
-                      currentCell = cellIterator.next();
+                    currentCell = cellIterator.next();
+                    student.put("serial_no", getCellValue(currentCell));
+                    currentCell = cellIterator.next();
+                    String name = getCellValue(currentCell);
+                    currentCell = cellIterator.next();
                     student.put("self_contact", getCellValue(currentCell));
-                      currentCell = cellIterator.next();
+                    currentCell = cellIterator.next();
                     student.put("parents_contact", getCellValue(currentCell));
-                     currentCell = cellIterator.next();
+                    currentCell = cellIterator.next();
                     student.put("self_email", getCellValue(currentCell));
 
-                    students.put(name,student);
+                    students.put(name, student);
                 }
             }
         } catch (FileNotFoundException e) {

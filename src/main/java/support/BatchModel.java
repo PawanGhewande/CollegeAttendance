@@ -6,17 +6,14 @@
 package support;
 
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.WriteResult;
-import com.google.firebase.cloud.FirestoreClient;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import connections.FireStoreDB;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -29,14 +26,21 @@ public class BatchModel {
         FireStoreDB db = new FireStoreDB();
         try {
             db.init();
-            Firestore open = FirestoreClient.getFirestore();
-            DocumentReference docRef = open.collection("departments").document(deptName).collection(className).document(divName).collection(batchName).document();
-            ApiFuture<WriteResult> result = docRef.set(data);
-            result.get();
+//            Firestore open = FirestoreClient.getFirestore();
+//            DocumentReference docRef = open.collection("departments").document(deptName).collection(className).document(divName).collection(batchName).document();
+//            ApiFuture<WriteResult> result = docRef.set(data);
+//            result.get();
+//            if (result.isDone()) {
+//                status = true;
+//                FireStoreDB.initializeApp.delete();
+//            }//ABOVE CODE FOR THE FIRESTORE DATABASE
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference ref = database.getReference().child("departments").child(className).child(divName).child(batchName);
+            ApiFuture<Void> result = ref.setValueAsync(data);
             if (result.isDone()) {
                 status = true;
-                FireStoreDB.initializeApp.delete();
-            }
+                //FirebaseApp.getInstance().delete();
+            }//THIS IS CODE FOR FIREBASE REALTIME DATABASE
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         } catch (ExecutionException ex) {
