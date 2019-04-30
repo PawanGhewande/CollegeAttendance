@@ -35,7 +35,7 @@ public class BatchModel {
 //                FireStoreDB.initializeApp.delete();
 //            }//ABOVE CODE FOR THE FIRESTORE DATABASE
             FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference ref = database.getReference().child("departments").child(className).child(divName).child(batchName);
+            DatabaseReference ref = database.getReference().child("departments").child(deptName).child(className).child(divName).child(batchName);
             ApiFuture<Void> result = ref.setValueAsync(data);
             if (result.isDone()) {
                 status = true;
