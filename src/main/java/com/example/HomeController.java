@@ -5,11 +5,24 @@
  */
 package com.example;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.Class1;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import support.SubjectModel;
 
 /**
  *
@@ -22,14 +35,31 @@ public class HomeController {
 //        return "redirect:/Home";
 //    }
 
-    @GetMapping("/Home")
-    public String formGet() {
-        return "Home";
+    //Initialize the list with some data for index screen
+    static {
+
     }
+        SubjectModel sm=new SubjectModel();
+    @RequestMapping(value = "/Home")
+    public String index(@ModelAttribute("model") ModelMap model) {
+ 
+            // List<Class1> userList = new ArrayList<>();
+            
+            List<String> subjects = sm.getSubjects("CSE","TE");
+            System.out.println("Array SIZE ::: "+subjects.size());
+            model.addAttribute("subjectsList", subjects);
+           
+         return "Home";
+    }
+//
+//    @GetMapping("/Home")
+//    public String formGet() {
+//        return "Home";
+//    }
 
     @PostMapping("/Home")
-    public String formPost( Model model) throws IOException {
-       
+    public String formPost(Model model) throws IOException {
+
 //        SubjectModel sm = new SubjectModel();
 //        Map<String, Object> data = new HashMap<>();
 //        data.put("subject", "Android");
@@ -38,5 +68,5 @@ public class HomeController {
 //         model.addAttribute("user", user);
         return "Home";
     }
-    
+
 }
