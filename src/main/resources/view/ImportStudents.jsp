@@ -62,13 +62,13 @@
                                             <input type="file" name="studentsFile" >
                                         </div>
                                         <div class="file-path-wrapper">
-                                            <input class="file-path validate"  type="text" placeholder="Import excel file...">
+                                            <input class="file-path validate"  type="text" placeholder="Select excel file...">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-action">
                                     <div class="center">
-                                        <button class="btn waves-effect waves-light" type="submit" style="border-radius: 15px; background-color: #3f51b5;">Import
+                                        <button class="btn waves-effect waves-light" type="submit" style="height:50px;width: 150px;border-radius: 8px; background-color: #3f51b5;">Import
                                         </button>
                                     </div>
                                 </div>

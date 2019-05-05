@@ -105,7 +105,7 @@ public class ImportModel {
         return students;
     }
 
-    private String getCellValue(Cell cell) {
+    public static String getCellValue(Cell cell) {
         String value = "";
         switch (cell.getCellTypeEnum()) {
             case BOOLEAN:

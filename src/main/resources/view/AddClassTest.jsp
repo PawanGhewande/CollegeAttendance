@@ -39,7 +39,7 @@
                     <div class="col s12 m4">
                     </div>
                     <div class="col s12 m4">
-                        <form action="/AddClassTest" method="POST" > 
+                        <form action="/AddClassTest" method="POST" enctype="multipart/form-data"> 
                             <div class="card ">
                                 <div class="card-content">
                                     <div class="input-field">
@@ -50,20 +50,31 @@
                                         <input type="text" name="className" class="validate">
                                         <label for="className">Class Name</label>
                                     </div> 
-
                                     <div class="input-field "> 
                                         <input type="text" name="divName" class="validate">
                                         <label for="divName">Division Name</label>
                                     </div>
                                     <div class="input-field "> 
-                                        <input type="text" name="batchName" class="validate">
-                                        <label for="batchName">Bach</label>
+                                        <input type="text" name="testName" class="validate">
+                                        <label for="testName">Test Name</label>
+                                    </div>
+                                    <div class="input-field "> 
+                                        <input type="text" name="outOf" class="validate">
+                                        <label for="outOf">Marks Given Out Of</label>
+                                    </div>
+                                    <div class="file-field input-field">
+                                        <div class="btn" style="border-radius: 15px; background-color: #3f51b5;">
+                                            <span>File</span>
+                                            <input type="file" name="marksFile" >
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate"  type="text" placeholder="Select excel file...">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="card-action">
                                     <div class="center">
-                                        <button class="btn waves-effect waves-light" type="submit" name="action" style="border-radius: 15px; background-color: #3f51b5;">Save
-
+                                        <button class="btn waves-effect waves-light" type="submit" style="height:50px;width: 150px;border-radius: 8px; background-color: #3f51b5;">Import
                                         </button>
                                     </div>
                                 </div>
@@ -77,5 +88,18 @@
         </f:view>
         <script src="/js/main.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+//            document.addEventListener('DOMContentLoaded', function () {
+//                var elems = document.querySelectorAll('.sidenav');
+//                var instances = M.Sidenav.init(elems, options);
+//            });
+
+//            // Or with jQuery
+//
+            $(document).ready(function () {
+                $('.sidenav').sidenav();
+            });
+        </script>
     </body>
 </html>

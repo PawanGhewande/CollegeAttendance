@@ -39,31 +39,32 @@
                 <div class="col s12 m4">
                 </div>
                 <div class="col s12 m4">
-                    <form action="/AddTeacher" > 
+                    <form action="/AddTeacher" method="POST"> 
                         <div class="card ">
                             <div class="card-content">
                                 <div class="input-field">
-                                    <input type="text" name="firstName" class="validate">
-                                    <label for="Teacher Name">Teacher Name</label>
+                                        <input type="text" name="deptName" class="validate">
+                                        <label for="deptName">Department Name</label>
+                                    </div> 
+                                <div class="input-field">
+                                    <input type="text" name="teacherName" class="validate">
+                                    <label for="teacherName">Name</label>
                                 </div>
                                 
                                 <div class="input-field "> 
-                                    <input type="text" name="lastName" class="validate">
-                                    <label for="Subject Name">Subject Name</label>
+                                    <input type="text" name="teacherEmail" class="validate">
+                                    <label for="teacherEmail">Email</label>
                                 </div> 
                                 
                                 <div class="input-field "> 
-                                    <input type="text" name="lastName" class="validate">
-                                    <label for="Class Name">Class</label>
+                                    <input type="text" name="teacherMobile" class="validate">
+                                    <label for="teacherMobile">Mobile</label>
                                 </div>
-                               
-                            
                             </div>
                             <div class="card-action">
                                 <div class="center">
-                                    <button class="btn waves-effect waves-light" type="submit" name="action" style="border-radius: 15px; background-color: #3f51b5;">Save
-                                 
-                                    </button>
+                                        <button class="btn waves-effect waves-light" type="submit" style="height:50px;width: 150px;border-radius: 8px; background-color: #3f51b5;">SAVE
+                                        </button>
                                 </div>
                             </div>
                         </div>
@@ -76,6 +77,19 @@
 </f:view>
         <script src="/js/main.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+                <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+//            document.addEventListener('DOMContentLoaded', function () {
+//                var elems = document.querySelectorAll('.sidenav');
+//                var instances = M.Sidenav.init(elems, options);
+//            });
+
+//            // Or with jQuery
+//
+            $(document).ready(function () {
+                $('.sidenav').sidenav();
+            });
+        </script>
     </body>
     </html>
 

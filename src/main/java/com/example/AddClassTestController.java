@@ -7,12 +7,13 @@ package com.example;
 
 import java.io.IOException;
 import java.util.Map;
-import model.Import;
+import model.ClassTest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
+import support.ClassTestModel;
 
 /**
  *
@@ -27,12 +28,12 @@ public class AddClassTestController {
     }
 
     @PostMapping("/AddClassTest")
-    public String formPost(Import data, Model model) throws IOException {
-//        ImportModel im = new ImportModel();
-//        MultipartFile studentsFile = data.getStudentsFile();
-//        Map<String, Object> students = im.readData(studentsFile.getInputStream());
-//        students.put("added_by", "Admin");
-//        im.saveStudents(data.getDeptName(), data.getClassName(), data.getDivName(), students);
+    public String formPost(ClassTest data, Model model) throws IOException {
+        ClassTestModel ctm = new ClassTestModel();
+        MultipartFile studentsFile = data.getMarksFile();
+        Map<String, Object> classTest = ctm.readData(studentsFile.getInputStream(),data.getOutOf());
+        classTest.put("added_by", "Admin");
+        ctm.saveClassTest(data.getDeptName(), data.getClassName(), data.getDivName(),data.getTestName(), classTest);
         return "AddClassTest";
     }
 }

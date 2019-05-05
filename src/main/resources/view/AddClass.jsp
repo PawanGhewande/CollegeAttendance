@@ -59,8 +59,7 @@
                                 </div>
                                 <div class="card-action">
                                     <div class="center">
-                                        <button class="btn waves-effect waves-light" type="submit" name="action" style="border-radius: 15px; background-color: #3f51b5;">Save
-
+                                        <button class="btn waves-effect waves-light" type="submit" style="height:50px;width: 150px;border-radius: 8px; background-color: #3f51b5;">SAVE
                                         </button>
                                     </div>
                                 </div>
@@ -74,5 +73,18 @@
         </f:view>
         <script src="/js/main.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+                <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+//            document.addEventListener('DOMContentLoaded', function () {
+//                var elems = document.querySelectorAll('.sidenav');
+//                var instances = M.Sidenav.init(elems, options);
+//            });
+
+//            // Or with jQuery
+//
+            $(document).ready(function () {
+                $('.sidenav').sidenav();
+            });
+        </script>
     </body>
 </html>
