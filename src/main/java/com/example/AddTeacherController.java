@@ -6,10 +6,14 @@
 package com.example;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import model.Teacher;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import support.TeacherModel;
 
 /**
  *
@@ -28,14 +32,16 @@ public class AddTeacherController {
     }
 
     @PostMapping("/AddTeacher")
-    public String formPost( Model model) throws IOException {
+    public String formPost(Teacher teacher,Model model) throws IOException {
        
-//        SubjectModel sm = new SubjectModel();
-//        Map<String, Object> data = new HashMap<>();
-//        data.put("subject", "Android");
-//        data.put("added_by", "Admin");
-//        sm.saveSubject("CSE", "TE", data);
-//         model.addAttribute("user", user);
+        TeacherModel sm = new TeacherModel();
+        Map<String, Object> data = new HashMap<>();
+        data.put("name", teacher.getTeacherName());
+        data.put("email", teacher.getTeacherEmail());
+        data.put("mobile", teacher.getTeacherMobile());
+        data.put("added_by", "Admin");
+        sm.saveTeacher(teacher.getDeptName(), data);
+        // model.addAttribute(teacher.getTeacherName(), data);
         return "AddTeacher";
     }
     

@@ -27,21 +27,21 @@ public class HomeController {
 //    }
 
     //Initialize the list with some data for index screen
-    static {
-
-    }
-        SubjectModel sm=new SubjectModel();
-    @RequestMapping(value = "/Home")
-    public String index(@ModelAttribute("model") ModelMap model) {
- 
-            // List<Class1> userList = new ArrayList<>();
-            
-            List<String> subjects = sm.getSubjects("CSE","TE");
-            System.out.println("Array SIZE ::: "+subjects.size());
-            model.addAttribute("subjectsList", subjects);
-           
-         return "Home";
-    }
+//    static {
+//
+//    }
+//        SubjectModel sm=new SubjectModel();
+//    @RequestMapping(value = "/Home")
+//    public String index(@ModelAttribute("model") ModelMap model) {
+// 
+//            // List<Class1> userList = new ArrayList<>();
+//            
+//            List<String> subjects = sm.getSubjects("CSE","TE");
+//            System.out.println("Array SIZE ::: "+subjects.size());
+//            model.addAttribute("subjectsList", subjects);
+//           
+//         return "Home";
+//    }
 //
 //    @GetMapping("/Home")
 //    public String formGet() {
