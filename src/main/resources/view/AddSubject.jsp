@@ -6,21 +6,30 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <div>
-        <nav style="background: #3f51b5;">
-            <div class="nav-wrapper-red">
-                <!--<a>Welcome : <%= user%> </a>-->
-                <a href="#" class="brand-logo center">Attendance Tracker</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="AddSubject">Add Subject</a></li>
-                    <li><a href="AddTeacher">Add Teacher</a></li>
-                    <li><a href="AddClass">Add Class</a></li>
-                                            <li><a href="AddBatch">Add Batches</a></li>
-                    <li><a href="ImportStudents">Import Students</a></li>
-                </ul>
-            </div>
-        </nav>  
-    </div>
+        <div>
+            <nav style="background: #3f51b5;">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">Attendance Tracker</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="AddSubject">Add Subject</a></li>
+                        <li><a href="AddTeacher">Add Teacher</a></li>
+                        <li><a href="AddClass">Add Class</a></li>
+                        <li><a href="AddBatch">Add Batches</a></li>
+                        <li><a href="AddClassTest">Class Test</a></li>
+                        <li><a href="ImportStudents">Import Students</a></li>
+                    </ul>
+                </div>
+            </nav>  
+            <ul class="sidenav" id="mobile-demo">
+                <li><a href="AddSubject">Add Subject</a></li>
+                <li><a href="AddTeacher">Add Teacher</a></li>
+                <li><a href="AddClass">Add Class</a></li>
+                <li><a href="AddBatch">Add Batches</a></li>
+                <li><a href="ClassTest">Class Test</a></li>
+                <li><a href="ImportStudents">Import Students</a></li>
+            </ul>
+        </div>
     <f:view>
         <div class="col s12">
             <div class="row">

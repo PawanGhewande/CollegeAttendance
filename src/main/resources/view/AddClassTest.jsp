@@ -35,11 +35,11 @@
         <f:view>
             <div class="col s12">
                 <div class="row">
-                    <center> <h4>Add Batches</h4></center>
+                    <center> <h4>Add Class Test</h4></center>
                     <div class="col s12 m4">
                     </div>
                     <div class="col s12 m4">
-                        <form action="/AddBatch" method="POSt" > 
+                        <form action="/AddClassTest" method="POST" > 
                             <div class="card ">
                                 <div class="card-content">
                                     <div class="input-field">

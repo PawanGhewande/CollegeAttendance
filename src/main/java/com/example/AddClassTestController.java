@@ -13,32 +13,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
-import support.ImportModel;
 
 /**
  *
  * @author pawan
  */
 @Controller
-public class ImportStudentsController {
+public class AddClassTestController {
 
-//    @GetMapping("/")
-//    public String index() {
-//        return "redirect:/ImportStudents";
-//    }
-    @GetMapping("/ImportStudents")
+    @GetMapping("/AddClassTest")
     public String formGet() {
-        return "ImportStudents";
+        return "AddClassTest";
     }
 
-    @PostMapping("/ImportStudents")
+    @PostMapping("/AddClassTest")
     public String formPost(Import data, Model model) throws IOException {
-        ImportModel im = new ImportModel();
-        MultipartFile studentsFile = data.getStudentsFile();
-        Map<String, Object> students = im.readData(studentsFile.getInputStream());
-        students.put("added_by", "Admin");
-        im.saveStudents(data.getDeptName(), data.getClassName(), data.getDivName(), students);
-        return "ImportStudents";
+//        ImportModel im = new ImportModel();
+//        MultipartFile studentsFile = data.getStudentsFile();
+//        Map<String, Object> students = im.readData(studentsFile.getInputStream());
+//        students.put("added_by", "Admin");
+//        im.saveStudents(data.getDeptName(), data.getClassName(), data.getDivName(), students);
+        return "AddClassTest";
     }
-
 }
