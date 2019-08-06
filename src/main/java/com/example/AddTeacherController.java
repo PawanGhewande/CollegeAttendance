@@ -40,7 +40,7 @@ public class AddTeacherController {
         data.put("email", teacher.getTeacherEmail());
         data.put("mobile", teacher.getTeacherMobile());
         data.put("added_by", "Admin");
-        sm.saveTeacher(teacher.getDeptName(), data);
+        sm.saveTeacher(teacher.getDeptName(),teacher.getTeacherName(), data);
         // model.addAttribute(teacher.getTeacherName(), data);
         return "AddTeacher";
     }

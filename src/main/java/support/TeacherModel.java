@@ -25,12 +25,12 @@ public class TeacherModel {
     private FireStoreDB db = new FireStoreDB();
     private FirebaseDatabase database;// = FirebaseDatabase.getInstance();
 
-    public boolean saveTeacher(String deptName, Map<String, Object> data) {
+    public boolean saveTeacher(String deptName,String userEmail, Map<String, Object> data) {
         boolean status = false;
         try {
             db.init();
             database = FirebaseDatabase.getInstance();
-            DatabaseReference ref = database.getReference().child("teachers").child(deptName);
+            DatabaseReference ref = database.getReference().child("teachers").child(deptName).child(userEmail);
             ApiFuture<Void> result = ref.setValueAsync(data);
             if (result.isDone()) {
                 status = true;
